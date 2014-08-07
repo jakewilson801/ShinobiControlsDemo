@@ -10,6 +10,8 @@ import com.shinobicontrols.charts.DataAdapter;
 import com.shinobicontrols.charts.DataPoint;
 import com.shinobicontrols.charts.DateTimeAxis;
 import com.shinobicontrols.charts.NumberAxis;
+import com.shinobicontrols.charts.Range;
+import com.shinobicontrols.charts.SeriesStyle;
 import com.shinobicontrols.charts.ShinobiChart;
 
 import java.util.Random;
@@ -37,12 +39,16 @@ public class WaterChartFragment extends ChartFragment implements Runnable {
         }
 
 
+
         NumberAxis xAxis = new NumberAxis();
+
+
         xAxis.enableGesturePanning(true);
         shinobiChart.setXAxis(xAxis);
-        xAxis.getStyle().setInterSeriesPadding(0.5f);
+        //xAxis.getStyle().setInterSeriesPadding(0.5f);
 
         NumberAxis yAxis = new NumberAxis();
+
         shinobiChart.setYAxis(yAxis);
 
         DateTimeAxis dt = new DateTimeAxis();
@@ -53,6 +59,10 @@ public class WaterChartFragment extends ChartFragment implements Runnable {
 
         // Create a ColumnSeries and give it the data adapter
         ColumnSeries series = new ColumnSeries();
+        series.getStyle().setLineColor(getResources().getColor(R.color.rachioBlue));
+        series.getStyle().setAreaColor(getResources().getColor(R.color.rachioBlue));
+        series.getStyle().setFillStyle(SeriesStyle.FillStyle.FLAT);
+
         series.setDataAdapter(dataAdapter);
         shinobiChart.addSeries(series);
 
