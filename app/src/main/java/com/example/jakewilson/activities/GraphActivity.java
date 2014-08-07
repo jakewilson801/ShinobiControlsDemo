@@ -13,6 +13,7 @@ import android.os.Build;
 
 import com.example.jakewilson.fragments.WaterChartFragment;
 import com.example.jakewilson.graphs.R;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 public class GraphActivity extends Activity {
 
@@ -29,8 +30,20 @@ public class GraphActivity extends Activity {
             chartFragment.run();
             chart2Fragment.run();
         }
+        setUpTintBar();
+
     }
 
+    public void setUpTintBar(){
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setNavigationBarTintEnabled(true);
+        if(Build.VERSION.SDK_INT >= 19){
+            SystemBarTintManager.SystemBarConfig config = tintManager.getConfig();
+            findViewById(android.R.id.content).setPadding(0, config.getPixelInsetTop(true), config.getPixelInsetRight(), config.getPixelInsetBottom());
+        }
+        tintManager.setTintColor(getResources().getColor(R.color.rachioBlue));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
