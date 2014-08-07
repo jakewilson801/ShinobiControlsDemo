@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/jakewilson/Documents/workspace/Graphs/shinobichartsandroidlibrary/src/main/res/values-large/dimens.xml -->
+    <eat-comment />
+
+    <item name="sc_axisTitleTextSize" format="float" type="dimen">18</item>
+    <item name="sc_defaultAnnotationTextSize" format="float" type="dimen">14.0</item>
+
+</resources>
